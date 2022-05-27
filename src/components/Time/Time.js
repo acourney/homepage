@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function Time(props) {
+  const [toggle, setToggle] = useState(false);
   const [timeToDisplay, setTimeToDisplay] = useState("");
 
   let time = new Date();
@@ -121,9 +122,13 @@ function Time(props) {
   }
 
   useEffect(() => {
-    console.log(timeInWords(local_hour, local_minute));
-    setTimeToDisplay(timeInWords(local_hour, local_minute));
-  }, [time]);
+    const intervalID = setTimeout(() => {
+      setTimeToDisplay(timeInWords(local_hour, local_minute));
+      setToggle((toggle) => !toggle);
+    }, 1000);
+
+    return () => clearInterval(intervalID);
+  }, [toggle]);
 
   return <div>{timeToDisplay}</div>;
 }
