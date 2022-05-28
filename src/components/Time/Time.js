@@ -5,6 +5,8 @@ import "./Time.css";
 function Time(props) {
   const [toggle, setToggle] = useState(false);
   const [timeToDisplay, setTimeToDisplay] = useState("");
+  const [minuteToDisplay, setMinuteToDisplay] = useState("");
+  const [hourToDisplay, setHourToDisplay] = useState("");
 
   let time = new Date();
   let local_hour = parseInt(time.toLocaleTimeString().split(":")[0]);
@@ -48,7 +50,10 @@ function Time(props) {
     };
 
     if (m.toString().length === 1) {
-      minute = ones[m];
+      const single_digit_minute = [];
+      single_digit_minute.push("o' ", ones[m]);
+
+      minute = single_digit_minute.join(" ");
     } else if (m.toString().length === 2) {
       if (m.toString().split("")[0] === "1") {
         minute = teens[m];
@@ -67,6 +72,27 @@ function Time(props) {
 
     return minute;
   }
+
+  function hourConversion(h) {
+    const hour_conversions = {
+      1: "one",
+      2: "two",
+      3: "three",
+      4: "four",
+      5: "five",
+      6: "six",
+      7: "seven",
+      8: "eight",
+      9: "nine",
+      10: "ten",
+      11: "eleven",
+      12: "twelve",
+    };
+
+    const hour = hour_conversions[h];
+    return hour;
+  }
+
   function timeInWords(h, m) {
     // Write your code here
     if (m.toString().split("")[0] === "0") {
@@ -126,6 +152,8 @@ function Time(props) {
   useEffect(() => {
     const intervalID = setTimeout(() => {
       setTimeToDisplay(timeInWords(local_hour, local_minute));
+      setHourToDisplay(hourConversion(local_hour));
+      setMinuteToDisplay(minuteConversion(local_minute));
       setToggle((toggle) => !toggle);
     }, 1000);
 
@@ -134,7 +162,11 @@ function Time(props) {
 
   return (
     <div className="time-container">
-      <div className="time-text">{timeToDisplay}</div>
+      {/* <div className="time-text">{timeToDisplay}</div> */}
+      <div className="clock-display">
+        <div className="hour-display">{hourToDisplay}</div>
+        <div className="minute-display">{minuteToDisplay}</div>
+      </div>
     </div>
   );
 }

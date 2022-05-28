@@ -1,4 +1,6 @@
 .weather-container {
+    font-family: 'Patua One', 'Times New Roman', Times, serif;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,5 +10,6 @@
 }
 
 main {
+
     width: 100%;
 }
