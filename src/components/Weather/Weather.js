@@ -63,7 +63,9 @@ function Weather(props) {
           onChange={handleChangeSubject}
           value={formState.zipcode}
         ></input>
-        <button type="submit">Check Weather</button>
+        <button className="weather-submit-button" type="submit">
+          Check Weather
+        </button>
       </form>
       <main>
         {loading === false ? (
