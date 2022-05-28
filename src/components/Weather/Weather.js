@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import "./Weather.css";
+
 function Weather(props) {
   const apiKey = "e066e3519bfea8228d8e4d4c9f5f8ce0";
 
@@ -55,7 +57,7 @@ function Weather(props) {
   }, [handleSubmit]);
 
   return (
-    <div>
+    <div className="weather-container">
       <form onSubmit={handleSubmit}>
         <label for="zipcode">Zip Code:</label>
         <input
@@ -65,15 +67,20 @@ function Weather(props) {
         ></input>
         <button type="submit">Check Weather</button>
       </form>
-      {loading === false ? (
-        <div>
-          The temperature right now in {city} is {currentTemp} &#176;F. Today's
-          low temperature is {loTemp}&#176;F. Today's high temperature is{" "}
-          {hiTemp}&#176;F. Conditions today: {currentCondition}
-        </div>
-      ) : (
-        <div>...</div>
-      )}
+      <main>
+        {loading === false ? (
+          <div>
+            <p>
+              The temperature right now in {city} is {currentTemp} &#176;F.
+            </p>
+            <p>Today's low temperature is {loTemp}&#176;F.</p>
+            <p>Today's high temperature is {hiTemp}&#176;F.</p>
+            <p>Conditions today: {currentCondition}</p>
+          </div>
+        ) : (
+          <div>enter a zip code to check the weather</div>
+        )}
+      </main>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import "./Time.css";
+
 function Time(props) {
   const [toggle, setToggle] = useState(false);
   const [timeToDisplay, setTimeToDisplay] = useState("");
@@ -130,7 +132,11 @@ function Time(props) {
     return () => clearInterval(intervalID);
   }, [toggle]);
 
-  return <div>{timeToDisplay}</div>;
+  return (
+    <div className="time-container">
+      <div className="time-text">{timeToDisplay}</div>
+    </div>
+  );
 }
 
 export default Time;

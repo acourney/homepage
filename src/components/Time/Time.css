@@ -1,0 +1,10 @@
+.time-container {
+    border: 15px solid rgb(198, 162, 126);
+    font-size: 3rem;
+}
+
+.time-text {
+    padding: 10px;
+    background-color: rgb(206, 206, 201);
+    color: black;
+}
