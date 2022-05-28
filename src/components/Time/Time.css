@@ -26,12 +26,14 @@
     background-image: url("https://imgur.com/A8uURh1.png");
     background-size: cover;
     background-position: left;
+
 }
+
 .minute-display {
     padding:7px;
     border: 2px solid black;
 
-    background-image: url("https://imgur.com/xaIZQTe.png");
+    background-image: url("https://imgur.com/KQZQClf.png");
     background-size: cover;
     background-position: right;
 }

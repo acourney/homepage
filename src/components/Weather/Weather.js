@@ -38,8 +38,6 @@ function Weather(props) {
         return res.json();
       })
       .then((data) => {
-        //display information to the screen
-        console.log(data);
         const cityName = data.name;
         const temp = data.main.temp;
         const minTemp = data.main.temp_min;
