@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./Weather.css";
 
 function Weather(props) {
-  const apiKey = "e066e3519bfea8228d8e4d4c9f5f8ce0";
+  const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
   const [city, setCity] = useState();
   const [currentTemp, setCurrentTemp] = useState();
